@@ -1,0 +1,1 @@
+ALTER TABLE Flower ADD LatinNaming NVARCHAR(30) NOT NULL;

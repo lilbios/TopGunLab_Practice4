@@ -1,0 +1,3 @@
+CREATE PROC spCloseSupply
+AS
+GO
