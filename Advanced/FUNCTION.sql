@@ -1,16 +1,16 @@
 
 CREATE FUNCTION fnIsPossibleSupply(@FlowerId INT, @PlantationId INT, @Amount INT)
-	RETURNS NVARCHAR
+	RETURNS BIT
 AS
 	BEGIN
 		DECLARE @AmountFlowerOnPlantation INT;
-		DECLARE @RESULT NVARCHAR(5);
+		DECLARE @RESULT BIT;
 		SET @AmountFlowerOnPlantation = (SELECT PlantationFlower.Ammount FROM PlantationFlower 
 			WHERE   @PlantationId = PlantationFlower.PlantationId AND  PlantationFlower.FlowerId = @FlowerId);
 			IF (@AmountFlowerOnPlantation > @Amount)
-				SET @RESULT = 'false';
+				SET @RESULT = 0;
 			ELSE
-				SET @RESULT = 'true';
+				SET @RESULT = 1;
 		RETURN @RESULT;
 				
 	END
